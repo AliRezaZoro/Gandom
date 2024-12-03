@@ -13,11 +13,22 @@ datasource db {
 
 //The Part I Added to the Code
 
+model Task {
+
+  id            Int       @id @default (autoincrement ())
+  title         String
+  description   String?
+  isCompleted   Boolean   @default (false)
+  createdAt     DateTime  @default (now ())
+}
+
+
 // model User {
-//   id       Int       @id @default(autoincrement())
-//   email    String    @unique
-//   name     String?
-//   articles Article []
+//
+//   id          Int         @id @default(autoincrement())
+//   email       String      @unique
+//   name        String?
+//   articles    Article []
 // }
 //
 //
@@ -28,13 +39,3 @@ datasource db {
 //   author     User      @relation(fields: [authorId], references: [id])
 //   authorId   Int
 // }
-
-
-model Tasks {
-
-  id            Int       @id @default (autoincrement ())
-  title         String
-  description   String?
-  isCompleted   Boolean   @default (false)
-  createdAt     DateTime  @default (now ())
-}
