@@ -1,35 +1,10 @@
-var express = require ('express');
-const {user, $disconnect} = require ("@prisma/client");
-var router = express.Router ();
-
-const { PrismaClient } = require ('@prisma/client');
-
-const prisma = new PrismaClient ();
+var express = require('express');
+const {user, $disconnect} = require("@prisma/client");
+var router = express.Router();
 
 /* GET home page. */
-router.get ('/', async (req, res, next) =>
-{
-  const task = await prisma.task.create ({
-    data: {
-      title: 'New Task',
-      description: 'Description',
-    },
-  });
-
-  res.json ({
-    ok: true,
-    task
-  });
-});
-
-
-router.get ('/all', async (req, res, next) => {
-  const tasks = await prisma.task.findMany ();
-
-  res.json ({
-    ok: true,
-    tasks: tasks,
-  });
+router.get('/', async (req, res, next) => {
+    res.json('Home Page.');
 });
 
 module.exports = router;
